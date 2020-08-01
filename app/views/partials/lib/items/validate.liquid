@@ -9,6 +9,7 @@
       "tags": {{ item.properties.tags | split: ',' }},
       "owner": {{ owner | json }},
       "description": {{ item.properties.description | default: "" | json }},
+      "cover_photo": {{ item.properties.cover_photo | default: "" | json }},
       "type": {{ item.properties.type | default: "" | json }},
       "price": {{ item.properties.price | plus: 0 }},
       "uuid": {{ item.properties.uuid | json }}
