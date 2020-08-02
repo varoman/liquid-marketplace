@@ -1,0 +1,9 @@
+---
+method: post
+---
+
+{% liquid
+    include 'lib/carts/validate', cart: context.params.cart
+    include 'lib/carts/create', cart: context.exports.cart
+    include 'async-operation', uuid: context.exports.last_operation_uuid, success: '/carts'
+%}

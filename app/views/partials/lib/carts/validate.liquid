@@ -1,0 +1,24 @@
+{% liquid
+    assign valid = true
+    assign errors = '{}' | parse_json
+    assign perrors = '{}' | parse_json
+    assign errors = errors | add_hash_key: 'properties', perrors
+
+    if cart.properties.user_id == "" or cart.properties.user_id == null
+    assign valid = false
+    assign perrors = perrors | add_hash_key: "user_id", 'app.errors.blank'
+    endif
+
+    if cart.properties.item_id == "" or cart.properties.item_id == null
+    assign valid = false
+    assign perrors = perrors | add_hash_key: "item_id", 'app.errors.blank'
+    endif
+
+%}
+
+
+{% liquid
+    export cart
+    export errors, namespace: 'cart'
+    export valid,  namespace: 'cart'
+%}

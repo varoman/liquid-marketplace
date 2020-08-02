@@ -1,0 +1,4 @@
+{% liquid
+    graphql cart = 'carts/create', args: cart.properties | dig: 'model_create'
+    export cart
+%}
