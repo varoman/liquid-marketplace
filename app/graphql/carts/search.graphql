@@ -1,0 +1,27 @@
+query search($id: ID, $limit: Int = 10) {
+    carts: models(
+        per_page: $limit
+        filter: {
+            user_id: { value: $id }
+            model_schema_name: { value: "cart" }
+        }
+        sort: [
+            { created_at: { order: DESC }}
+        ]
+    ){
+        results {
+            item: related_model(join_on_property: "item_id", foreign_property: "id", model_schema_name: "item") {
+                id
+                properties
+
+                photos: related_models(model_schema_name: "item_photo", join_on_property: "uuid", foreign_property: "item_uuid") {
+                    photo: property_upload(name: "photo") {
+                        url
+                        versions
+                    }
+                }
+            }
+
+        }
+    }
+}

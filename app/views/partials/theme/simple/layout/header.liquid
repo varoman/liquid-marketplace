@@ -14,7 +14,7 @@
 
       {% if context.current_user.id  %}
       <a href="/dashboard" class="mr-5 hover:text-gray-900">{{ 'app.dashboard' | t }}</a>
-      <a href="/cart" class="mr-5 hover:text-gray-900">
+      <a href="/carts" class="mr-5 hover:text-gray-900">
         <img class="w-8" src="{{ 'images/icons/cart.svg' | asset_url }}" alt="cart"></a>
       <form action="/sessions/destroy" method="post">
         {% include 'authenticity_token' %}
