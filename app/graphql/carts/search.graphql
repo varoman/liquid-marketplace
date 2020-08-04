@@ -1,15 +1,19 @@
-query search($id: ID, $limit: Int = 10) {
+query search($user_id: String!, $limit: Int = 10) {
     carts: models(
         per_page: $limit
         filter: {
-            user_id: { value: $id }
-            model_schema_name: { value: "cart" }
+            model_schema_name: { value: "cart" },
+            properties: [
+                { name: "user_id" value: $user_id }
+            ]
+
         }
         sort: [
             { created_at: { order: DESC }}
         ]
     ){
         results {
+            id
             item: related_model(join_on_property: "item_id", foreign_property: "id", model_schema_name: "item") {
                 id
                 properties
