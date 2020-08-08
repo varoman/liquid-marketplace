@@ -1,4 +1,4 @@
-<header class="text-gray-700 body-font">
+<header class="text-gray-700 body-font bg-blue-900 mb-10">
   <div class="container flex flex-col flex-wrap items-center py-5 mx-auto md:flex-row">
     <a class="flex items-center mb-4 font-medium text-gray-900  md:mb-0" href="/">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round"
@@ -6,19 +6,19 @@
         viewBox="0 0 24 24">
         <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
       </svg>
-      <span class="ml-3 text-xl">{{ 'app.title' | t }}</span>
+      <span class="ml-3 text-xl text-white">{{ 'app.title' | t }}</span>
     </a>
 
     <nav class="flex flex-wrap items-center justify-center text-base md:ml-auto">
-      <a href="/items/new" class="mr-5 hover:text-gray-900">{{ 'app.list-your-item' | t }}</a>
+      <a href="/items/new" class="mr-5 hover:text-blue-400 text-white">{{ 'app.list-your-item' | t }}</a>
 
       {% if context.current_user.id  %}
-      <a href="/dashboard" class="mr-5 hover:text-gray-900">{{ 'app.dashboard' | t }}</a>
-      <a href="/carts" class="mr-5 hover:text-gray-900">
+      <a href="/dashboard" class="mr-5 hover:text-blue-400 text-white">{{ 'app.dashboard' | t }}</a>
+      <a href="/carts" class="mr-5">
         <img class="w-8" src="{{ 'images/icons/cart.svg' | asset_url }}" alt="cart"></a>
       <form action="/sessions/destroy" method="post">
         {% include 'authenticity_token' %}
-        <button class="button button-secondary button-sm">
+        <button class="button button-secondary button-sm hover:text-blue-400">
           Log out
         </button>
       </form>
